@@ -1,3 +1,10 @@
+# Home Robo
+Robo does things.
+
+## Project structure
+* `arduino/` has source for Arduino Nano connected to motor controllers
+
+
 ### Deepspeech
 
 For dealing with voice command.
