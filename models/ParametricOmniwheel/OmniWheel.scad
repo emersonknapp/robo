@@ -18,30 +18,30 @@ $fs = 1;
 generate = 2;
 
 //GENERATION VARIABLES 
-//Number of all subwheels to create. (Has to be a round number!!)
-num = 6*2;	
+//Number of all subwheels to create. (Has to be a round number)
+num = 7*2;
 //Radius of the omni-wheel.
-radius = 50;	
+radius = 30;	
 
 //CONNECTION AXIS VARIABLES 
 //Diameter of the axis the Omni-Wheel will be connected to.
-axisDiameter = 2;	
+axisDiameter = 22.3;	
 //Height of the cylinder that will connect axis and omniwheel together.
-axisConnectorHeight = 3; 	
+axisConnectorHeight = 7; 	
 //Thickness of the axis connector.
-axisConnectorThickness = 0.8; 	
+axisConnectorThickness = 1.0; 	
 
 //SUBWHEEL VARIABLES
 //Size of the subwheels at their smallest point (The edge)
-subwheelBaseSize = 5;
+subwheelBaseSize = 3.5;
 //The additional size that will be cut out around the subwheels to ensure smooth movement
 subwheelPlay = 1; 		
 //By what angle should the wheels overlap? This should result in smoother running, but at the same time might cause problems if this value is too big.
-subwheelOverlap = 1; 	
+subwheelOverlap = 3; 	
 
 //SUBWHEEL AXIS HOLE VARIABLE
 subwheelAxisDiameter = 1.75;
-subwheelAxisPlay = 0.4;
+subwheelAxisPlay = 0.7;
 
 //SUBWHEEL CONNECTOR VARIABLES
 //Radius of the connectors to the subwheels (Best is slightly smaller than the subwheel.
@@ -62,19 +62,21 @@ frameThickness = 0.8;
 
 //STABILITY BEAM VARIABLES
 //Thickness of the stability beams
-beamThickness = 2.5; 	
+beamThickness = 5; 	
+// Height of the stability beams
+beamHeight = 3;
 //How many beams should be created?
-beamNum = 6;
+beamNum = 7;
 
 //CONNECTOR VARIABLES
 //Thickness of the vertical connectors
-connectorThickness = 0.8;	
+connectorThickness = 0.8;
 //Inwards shift of the vertical connector beams (for smoother connection)
-connectorInShift = 0.2;		
+connectorInShift = 0.2;
 //Height of the connector pieces above the main frame.
-connectorHeight = 2.5;		
+connectorHeight = 2.5;
 //How many connectors should be created
-connectorNum = 4;			
+connectorNum = 7;			
 
 
 module shine(angle=10, length=10, height=10, center=true) {
@@ -131,7 +133,10 @@ module subwheelBase(n, r=20, p=0, shift = subwheelBaseSize, split=true, position
 			}
 			
 			if(split) {
-				translate([0,0,-(sin(360/(2*n) + subwheelOverlap)*r)]) cylinder(d= subwheelAxisDiameter + subwheelAxisPlay, h= 2* sin(360/(2*n) + subwheelOverlap)*r,$fn=15);	//Slot for the Filament-Axis, rolling
+				translate([0,0,-(sin(360/(2*n) + subwheelOverlap)*r)]) {
+                    //Slot for the Filament-Axis, rolling
+                    cylinder(d=subwheelAxisDiameter + subwheelAxisPlay, h=2* sin(360/(2*n) + subwheelOverlap)*r, $fn=15);	
+                }
 			}
 		}
 	}
@@ -216,7 +221,7 @@ module structuralBeams() {
 		cylinder(r= frameRadius, h= cRad*2);		//Make sure that the structural beams don't poke out of the main frame.
 		
 		for(i=[0:360/beamNum:360]) 
-			rotate([0,0, i + 360/beamNum/2]) translate([0, -beamThickness/2, 0]) cube([frameRadius, beamThickness, 1]);		//Create the beams.
+			rotate([0,0, i + 360/beamNum/2]) translate([0, -beamThickness/2, 0]) cube([frameRadius, beamThickness, beamHeight]);		//Create the beams.
 	}
 }
 
