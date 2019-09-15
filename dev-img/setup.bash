@@ -1,3 +1,3 @@
 export TERM=xterm-256color
-
-colcon mixin update
+source /opt/ros/dashing/setup.bash
+# colcon mixin update

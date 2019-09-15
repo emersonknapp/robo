@@ -54,10 +54,10 @@ RUN python3 -m pip install -U \
   pytest-runner \
   setuptools
 
-RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer
+RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m
 USER developer
 
 ENV TERM xterm-256color
 CMD ["bash", "-l"]
-# COPY setup.bash /root/homey_setup.bash
-# RUN echo "source ~/homey_setup.bash" >> /root/.bashrc
+COPY setup.bash /home/developer/homey_setup.bash
+RUN echo "source ~/homey_setup.bash" >> /home/developer/.bashrc
