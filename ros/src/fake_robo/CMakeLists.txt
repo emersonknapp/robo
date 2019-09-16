@@ -22,6 +22,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 include_directories(include)
 
@@ -31,6 +32,7 @@ ament_target_dependencies(fake_base
   "rclcpp_components"
   "geometry_msgs"
   "nav_msgs"
+  "tf2_ros"
 )
 install(TARGETS fake_base
   DESTINATION lib/${PROJECT}
