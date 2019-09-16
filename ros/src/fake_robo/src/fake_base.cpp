@@ -15,6 +15,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
+#include "geometry_msgs/msg/twist_stamped.hpp"
+
 
 namespace fake_robo
 {
@@ -26,9 +28,14 @@ public:
   : Node("fake_base", options)
   {
     std::cout << "Hello Node" << std::endl;
+    cmd_vel_sub_ = create_subscription<geometry_msgs::msg::TwistStamped>(
+      "cmd_vel", 10, [this](const geometry_msgs::msg::TwistStamped::SharedPtr msg) -> void {
+        RCLCPP_INFO(this->get_logger(), "I heard a cmd x %f", msg->twist.linear.x);
+      });
   }
 
 private:
+  rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr cmd_vel_sub_ = nullptr;
 };
 
 }  // namespace demo_nodes_cpp
