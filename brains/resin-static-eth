@@ -9,10 +9,12 @@ secondaries=
 mac-address-blacklist=
 
 [ipv4]
-address1=192.168.1.111/24,192.168.1.1
+address1=192.168.4.111/24,192.168.4.1
 dns=8.8.8.8;8.8.4.4;
 dns-search=
 method=manual
+never-default=true
+route-metric=2000
 
 [ipv6]
 addr-gen-mode=stable-privacy

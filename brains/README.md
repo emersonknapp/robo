@@ -11,7 +11,21 @@ Download dev rpi3 image https://files.resin.io/resinos/raspberrypi3/2.43.0%2Brev
 ## Configuring image
 Run `balena local configure balena.img`
 
-Mount and copy `resin-eth` to `/system-connections` on the image
+Mount and copy `resin-static-eth` to `resin-boot/system-connections` on the image
+
+## Pushing the image
+
+```
+balena push homey.local .
+```
+
+If you want to build locally, uncomment the qemu line in the Dockerfile
+
+```
+mkdir -p ./bin
+cp /usr/bin/qemu-*-static .
+docker build .
+```
 
 ## Connecting
 Give yourself a static eth ip `192.168.1.1` and make sure routing works.
@@ -20,7 +34,7 @@ Give yourself a static eth ip `192.168.1.1` and make sure routing works.
 ssh root@192.168.1.111 -p 22222
 ```
 
-## Local cross-arch container workflows
+## (out of date, not deleting yet) local cross-arch container workflows
 
 Enable experimental features
 
