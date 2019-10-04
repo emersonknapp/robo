@@ -3,3 +3,7 @@ repositories:
     type: git
     url: https://github.com/ros2/pybind11_vendor
     version: master
+  homey/neato_botvac:
+    type: git
+    url: git@github.com:emersonknapp/neato_botvac
+    version: master
