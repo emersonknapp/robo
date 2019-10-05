@@ -54,6 +54,20 @@ RUN python3 -m pip install -U \
   pytest-runner \
   setuptools
 
+
+RUN python3 -m pip install -U \
+  pyserial
+
+RUN apt-get update && apt-get install -y \
+      ros-dashing-cartographer-ros \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y \
+      ros-dashing-rosbag2 \
+      ros-dashing-rosbag2-storage-default-plugins \
+      ros-dashing-ros2bag \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m
 USER developer
 

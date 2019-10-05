@@ -1,0 +1,13 @@
+#!/bin/bash
+
+docker run -it --rm \
+    --name neato \
+    --privileged \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -v $HOME/dev/ros/releases/ros2-linux:/opt/ros/dashing \
+    -v /dev:/dev \
+    -v $(pwd):/ws \
+    -w /ws \
+    homeydev
