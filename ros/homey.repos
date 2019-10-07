@@ -7,3 +7,11 @@ repositories:
     type: git
     url: git@github.com:emersonknapp/neato_botvac
     version: master
+  perception/cartographer_ros:
+    type: git
+    url: git@github.com:emersonknapp/cartographer_ros
+    version: eloquent-devel
+  perception/pcl_conversions:
+    type: git
+    url: https://github.com/ros2/pcl_conversions
+    version: ros2
