@@ -68,7 +68,7 @@ RUN apt-get update && apt-get install -y \
       ros-dashing-ros2bag \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m
+RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
 USER developer
 
 ENV TERM xterm-256color
