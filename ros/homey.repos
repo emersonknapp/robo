@@ -17,8 +17,8 @@ repositories:
     version: master
   perception/cartographer_ros:
     type: git
-    url: git@github.com:emersonknapp/cartographer_ros
-    version: eloquent-devel
+    url: https://github.com/ros2/cartographer_ros
+    version: dashing
   perception/pcl_conversions:
     type: git
     url: https://github.com/ros2/pcl_conversions
