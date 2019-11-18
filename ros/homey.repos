@@ -1,8 +1,4 @@
 repositories:
-  ros2/pybind11_vendor:
-    type: git
-    url: https://github.com/ros2/pybind11_vendor
-    version: master
   ros2/joystick_drivers:
     type: git
     url: https://github.com/ros2/joystick_drivers
@@ -15,6 +11,10 @@ repositories:
     type: git
     url: git@github.com:emersonknapp/neato_botvac
     version: master
+  neato_description:
+    type: git
+    url: git@github.com:emersonknapp/neato_description
+    version: ros2
   perception/cartographer_ros:
     type: git
     url: https://github.com/ros2/cartographer_ros
