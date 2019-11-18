@@ -54,7 +54,7 @@ RUN python3 -m pip install -U \
   pytest-runner \
   setuptools
 
-# base packages
+# for neato_botvac
 RUN python3 -m pip install -U \
   pyserial
 
@@ -68,13 +68,21 @@ RUN apt-get update && apt-get install -y \
       ros-dashing-rosbag2 \
       ros-dashing-rosbag2-storage-default-plugins \
       ros-dashing-ros2bag \
+      ros-dashing-xacro \
     && rm -rf /var/lib/apt/lists/*
+
+# for joint_state_publisher
+RUN python3 -m pip install -U \
+  PySide2
 
 # Useful dev tools
 RUN apt-get update && apt-get install -y \
       htop \
       screen \
     && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install -U \
+  ipython
 
 RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
 USER developer
