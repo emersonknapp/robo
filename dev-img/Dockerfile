@@ -69,6 +69,7 @@ RUN apt-get update && apt-get install -y \
       ros-dashing-rosbag2-storage-default-plugins \
       ros-dashing-ros2bag \
       ros-dashing-xacro \
+      ros-dashing-gazebo-plugins \
     && rm -rf /var/lib/apt/lists/*
 
 # for joint_state_publisher
