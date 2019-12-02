@@ -30,8 +30,8 @@ repositories:
     version: ros2-devel
   ros-visualization/visualization_tutorials:
     type: git
-    url: https://github.com/ros-visualization/visualization_tutorials
-    version: ros2
+    url: git@github.com:emersonknapp/visualization_tutorials
+    version: imu-display
   simulation/gazebo_terrain:
     type: git
     url: git@github.com:emersonknapp/gazebo_terrain
