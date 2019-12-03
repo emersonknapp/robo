@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
       screen \
       tree \
       vim \
+      less \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install -U \
@@ -32,6 +33,12 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m pip install -U \
   pyserial \
   PySide2
+
+# development workflow dependencies
+RUN apt-get update && apt-get install -y \
+      ros-$ROSDISTRO-rqt \
+      ros-$ROSDISTRO-rqt-graph \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
 USER developer
