@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rocker --nvidia --x11 \
+  --oyr-run-arg "--name neato --rm -v $PWD:/ws -v /dev:/dev -w /ws --privileged" \
+  -- homeydev:eloquent

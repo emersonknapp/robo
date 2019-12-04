@@ -40,8 +40,8 @@ RUN apt-get update && apt-get install -y \
       ros-$ROSDISTRO-rqt-graph \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
-USER developer
+# RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
+# USER developer
 
 ENV TERM xterm-256color
 CMD ["bash", "-l"]
