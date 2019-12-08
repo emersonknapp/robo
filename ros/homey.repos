@@ -16,10 +16,6 @@ repositories:
     type: git
     url: https://github.com/ros2/pcl_conversions
     version: ros2
-  # perception/slam_toolbox:
-  #   type: git
-  #   url: https://github.com/SteveMacenski/slam_toolbox.git
-  #   version: eloquent-devel
   ros2/joystick_drivers:
     type: git
     url: https://github.com/ros2/joystick_drivers
@@ -36,7 +32,15 @@ repositories:
     type: git
     url: git@github.com:emersonknapp/visualization_tutorials
     version: imu-display
-  simulation/gazebo_terrain:
+  planning/navigation2:
     type: git
-    url: git@github.com:emersonknapp/gazebo_terrain
-    version: ros2
+    url: https://github.com/ros-planning/navigation2
+    version: eloquent-devel
+  # simulation/gazebo_terrain:
+  #   type: git
+  #   url: git@github.com:emersonknapp/gazebo_terrain
+  #   version: ros2
+  # perception/slam_toolbox:
+  #   type: git
+  #   url: https://github.com/SteveMacenski/slam_toolbox.git
+  #   version: eloquent-devel

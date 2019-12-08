@@ -27,6 +27,10 @@ RUN apt-get update && apt-get install -y \
 # specifically cartographer-ros dependencies
 RUN apt-get update && apt-get install -y \
       ros-$ROSDISTRO-cartographer-ros \
+      libsdl1.2-dev \
+      libsdl-image1.2-dev \
+      ros-%ROSDISTRO-test-msgs \
+      libgraphicsmagick++1-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # for joint_state_publisher and neato_botvac
