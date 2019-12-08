@@ -10,12 +10,16 @@ repositories:
     version: ros2
   perception/cartographer_ros:
     type: git
-    url: https://github.com/ros2/cartographer_ros
-    version: dashing
+    url: git@github.com:emersonknapp/cartographer_ros
+    version: use-sim-time
   perception/pcl_conversions:
     type: git
     url: https://github.com/ros2/pcl_conversions
     version: ros2
+  # perception/slam_toolbox:
+  #   type: git
+  #   url: https://github.com/SteveMacenski/slam_toolbox.git
+  #   version: eloquent-devel
   ros2/joystick_drivers:
     type: git
     url: https://github.com/ros2/joystick_drivers
