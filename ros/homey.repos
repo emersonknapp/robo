@@ -1,17 +1,36 @@
 repositories:
-  # todo: namespace neatos
-  neato_botvac:
+  neato_base/neato_botvac:
     type: git
     url: git@github.com:emersonknapp/neato_botvac
     version: master
-  neato_description:
+  neato_base/neato_description:
     type: git
     url: git@github.com:emersonknapp/neato_description
     version: ros2
+  kobuki_base/kobuki_core:
+    type: git
+    url: git@github.com:clalancette/kobuki_core
+    version: crystal
+  kobuki_base/kobuki:
+    type: git
+    url: git@github.com:emersonknapp/kobuki
+    version: ros2
+  kobuki_base/turtlebot2_demo:
+    type: git
+    url: git@github.com:emersonknapp/turtlebot2_demo
+    version: eloquent
+  kobuki_base/turtlebot:
+    type: git
+    url: https://github.com/turtlebot/turtlebot
+    version: kinetic
+  kobuki_base/hls_lfcd_lds_driver:
+    type: git
+    url: https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver
+    version: ros2
   perception/cartographer_ros:
     type: git
-    url: git@github.com:emersonknapp/cartographer_ros
-    version: use-sim-time
+    url: git@github.com:ros2/cartographer_ros
+    version: dashing
   perception/pcl_conversions:
     type: git
     url: https://github.com/ros2/pcl_conversions
@@ -26,7 +45,7 @@ repositories:
     version: dashing
   ros/joint_state_publisher:
     type: git
-    url: git@github.com:emersonknapp/joint_state_publisher
+    url: git@github.com:ros/joint_state_publisher
     version: ros2-devel
   ros-visualization/visualization_tutorials:
     type: git
@@ -36,11 +55,3 @@ repositories:
     type: git
     url: https://github.com/ros-planning/navigation2
     version: eloquent-devel
-  # simulation/gazebo_terrain:
-  #   type: git
-  #   url: git@github.com:emersonknapp/gazebo_terrain
-  #   version: ros2
-  # perception/slam_toolbox:
-  #   type: git
-  #   url: https://github.com/SteveMacenski/slam_toolbox.git
-  #   version: eloquent-devel

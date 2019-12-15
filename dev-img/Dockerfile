@@ -29,8 +29,27 @@ RUN apt-get update && apt-get install -y \
       ros-$ROSDISTRO-cartographer-ros \
       libsdl1.2-dev \
       libsdl-image1.2-dev \
-      ros-%ROSDISTRO-test-msgs \
+      ros-$ROSDISTRO-test-msgs \
       libgraphicsmagick++1-dev \
+      ros-$ROSDISTRO-behaviortree-cpp-v3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# kobuki_driver dependencies
+RUN apt-get update && apt-get install -y \
+      ftdi-eeprom \
+      libusb-dev \
+      libftdi-dev \
+      ros-${ROSDISTRO}-ecl-build \
+      ros-${ROSDISTRO}-ecl-threads \
+      ros-${ROSDISTRO}-ecl-geometry \
+      ros-${ROSDISTRO}-ecl-linear-algebra \
+      ros-${ROSDISTRO}-ecl-command-line \
+      ros-${ROSDISTRO}-ecl-mobile-robot \
+      ros-${ROSDISTRO}-ecl-config \
+      ros-${ROSDISTRO}-ecl-converters \
+      ros-${ROSDISTRO}-ecl-devices \
+      ros-${ROSDISTRO}-ecl-sigslots \
+      ros-${ROSDISTRO}-ecl-time \
     && rm -rf /var/lib/apt/lists/*
 
 # for joint_state_publisher and neato_botvac
