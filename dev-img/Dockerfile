@@ -26,9 +26,9 @@ RUN apt-get update && apt-get install -y \
 
 # specifically cartographer-ros dependencies
 RUN apt-get update && apt-get install -y \
-      ros-$ROSDISTRO-cartographer-ros \
       libsdl1.2-dev \
       libsdl-image1.2-dev \
+      ros-$ROSDISTRO-cartographer \
       ros-$ROSDISTRO-test-msgs \
       libgraphicsmagick++1-dev \
       ros-$ROSDISTRO-behaviortree-cpp-v3 \
