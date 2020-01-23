@@ -1,0 +1,15 @@
+network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+    wlan0:
+      access-points:
+        ROB64:
+          password: "makerobogo"
+  ethernets:
+    eth0:
+      addresses:
+        - 10.10.10.2/24
+        - "fe80::1/60"
+      link-local: [ ipv6 ]
+      gateway4: 10.10.10.1

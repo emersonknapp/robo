@@ -68,3 +68,15 @@ sudo cp Image /boot/Image
 sudo cp dts/* /boot/dtb/
 sudo reboot now
 ```
+
+## Networking
+
+```
+## On host
+scp netplan-config.yml tx2
+
+## On tx2
+sudo apt install netplan.io
+sudo cp netplan-config.yml /etc/netplan/config.yaml
+sudo netplan apply
+```
