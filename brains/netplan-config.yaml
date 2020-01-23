@@ -3,13 +3,15 @@ network:
   renderer: NetworkManager
   wifis:
     wlan0:
+      dhcp4: yes
       access-points:
         ROB64:
           password: "makerobogo"
+        emersonparty:
+          password: "partytime"
   ethernets:
     eth0:
       addresses:
         - 10.10.10.2/24
-        - "fe80::1/60"
       link-local: [ ipv6 ]
       gateway4: 10.10.10.1

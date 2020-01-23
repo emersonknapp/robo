@@ -1,0 +1,9 @@
+FROM ubuntu:bionic
+
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install --upgrade rosdep setuptools colcon-common-extensions
+RUN rosdep init
+RUN rosdep update
+COPY gather-rosdeps.sh /root
+SHELL ["bash", "-l"]
+ENTRYPOINT /root/gather-rosdeps.sh

@@ -15,3 +15,14 @@ docker run -it \
     -v $(pwd):/ws \
     homeydev
 ```
+
+
+## rosdep workflow
+
+```
+docker build -f Dockerfile_rosdep -t rosdepper 
+docker run -v $ROS_WS:/root/ros -w /root/ros -e ROSDISTRO=eloquent -e PACKAGE=robot_runtime rosdepper
+```
+
+Outputs `$ROS_WS/compressed_install.sh` which contains a single-line apt-get install script. Can use this to create `runtime` image
+

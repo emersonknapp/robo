@@ -1,5 +1,6 @@
 #!/bin/bash
 
 rocker --nvidia --x11 \
+  --network host \
   --oyr-run-arg "--name homey --rm -v $PWD:/ws -v /dev:/dev -w /ws --privileged" \
   -- homeydev:eloquent

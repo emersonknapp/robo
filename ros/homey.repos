@@ -31,10 +31,10 @@ repositories:
     type: git
     url: git@github.com:ros2/cartographer_ros
     version: dashing
-  perception/pcl_conversions:
+  perception/perception_pcl:
     type: git
-    url: https://github.com/ros2/pcl_conversions
-    version: ros2
+    url: git@github.com:ros-perception/perception_pcl
+    version: eloquent-devel
   ros2/joystick_drivers:
     type: git
     url: https://github.com/ros2/joystick_drivers
