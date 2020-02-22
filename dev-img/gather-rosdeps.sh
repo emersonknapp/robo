@@ -13,3 +13,4 @@ rosdep install \
 
 echo "apt-get install -y \\" > compressed_install.sh
 cat rosdep_output.sh | awk '/^  apt-get install/' | awk '{print $3;}' | sort | awk 'NR > 1{print "  "line" \\"}{line=$0;}END{print "  "$0" "}' >> compressed_install.sh
+chmod +x compressed_install.sh

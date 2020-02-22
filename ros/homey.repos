@@ -1,4 +1,8 @@
 repositories:
+  emersonknapp/smart_battery_driver:
+    type: git
+    url: git@github.com:emersonknapp/smart_battery_driver
+    version: master
   neato_base/neato_botvac:
     type: git
     url: git@github.com:emersonknapp/neato_botvac

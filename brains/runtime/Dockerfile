@@ -3,6 +3,5 @@ COPY bin/qemu-aarch64-static /usr/bin
 
 COPY compressed_install.sh .
 RUN chmod +x compressed_install.sh
-RUN apt-get update
-RUN ./compressed_install.sh
+RUN apt-get update && ./compressed_install.sh
 CMD /bin/bash
