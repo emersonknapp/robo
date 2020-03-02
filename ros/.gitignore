@@ -2,3 +2,6 @@
 /build/
 /install/
 /log/
+/build_aarch64/
+/install_aarch64/
+/cc_internals/

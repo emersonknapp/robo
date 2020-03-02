@@ -63,6 +63,10 @@ RUN apt-get update && apt-get install -y \
       ros-$ROSDISTRO-rqt-graph \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y \
+      libi2c-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
 # USER developer
 
