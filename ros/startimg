@@ -1,14 +1,7 @@
 #!/bin/bash
 
-docker run -it \
-    --name homey --rm \
-    --privileged \
-    --env="DISPLAY" \
-    --env="QT_X11_NO_MITSHM=1" \
-    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -v /dev:/dev \
-    -v $(pwd):/ws \
-    -w /ws \
-    --network=host \
-    --entrypoint /bin/bash \
-    emerson/native-ubuntu-eloquent
+rocker \
+  --x11 \
+  --network host \
+  --oyr-run-arg "--name homey --rm -v $PWD:/ws -v /dev:/dev -w /ws --privileged --entrypoint /bin/bash" \
+  -- kojet-dev
