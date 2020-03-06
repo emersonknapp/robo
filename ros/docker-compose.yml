@@ -1,0 +1,11 @@
+version: '3'
+services:
+  kojet:
+    image: "192.168.1.11:5000/kojet-runtime"
+    privileged: true
+    volumes:
+      - ~/install_aarch64:/ws
+      - /dev:/dev
+    entrypoint: /bin/bash
+    working_dir: /ws
+
