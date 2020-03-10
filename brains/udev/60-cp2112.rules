@@ -1,0 +1,1 @@
+SUBSYSTEM=="i2c-dev", DRIVERS=="cp2112", SYMLINK+="cp2112"
