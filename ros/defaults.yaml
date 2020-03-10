@@ -1,5 +1,5 @@
 list:
-  packages-up-to: ["robot_runtime"]
+  packages-up-to: ["robot_stack"]
 build:
-  packages-up-to: ["robot_runtime"]
+  packages-up-to: ["robot_stack"]
   merge-install: yes

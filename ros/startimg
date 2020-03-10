@@ -4,4 +4,4 @@ rocker \
   --x11 \
   --network host \
   --oyr-run-arg "--name homey --rm -v $PWD:/ws -v /dev:/dev -w /ws --privileged --entrypoint /bin/bash" \
-  -- kojet-dev
+  -- emerson/x86_64-ubuntu-eloquent

@@ -4,6 +4,6 @@
 /log/
 /build_aarch64/
 /install_aarch64/
-/build_native/
-/install_native/
+/build_x86_64/
+/install_x86_64/
 /cc_internals/
