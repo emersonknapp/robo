@@ -1,58 +1,52 @@
 # Robobrains
 
-## Prereqs
-Using BalenaOS for easy setup
+## Udev rules
 
-Install cli https://github.com/balena-io/balena-cli/blob/master/INSTALL.md
+Install them all from `udev/`
 
-Download dev rpi3 image https://files.resin.io/resinos/raspberrypi3/2.43.0%2Brev1.dev/image/balena.img.zip
+## Process control
+
+Copy `systemd/` services to `~/`
+
+Copy `docker-compose.yml` to `~/`
 
 
-## Configuring image
-Run `balena local configure balena.img`
+## Docker registry setup
 
-Mount and copy `resin-static-eth` to `resin-boot/system-connections` on the image
-
-## Pushing the image
-
-```
-balena push homey.local .
-```
-
-If you want to build locally, uncomment the qemu line in the Dockerfile
-
-```
-mkdir -p ./bin
-cp /usr/bin/qemu-*-static .
-docker build .
-```
-
-## Connecting
-Give yourself a static eth ip `192.168.1.1` and make sure routing works.
-
-```
-ssh root@192.168.1.111 -p 22222
-```
-
-## (out of date, not deleting yet) local cross-arch container workflows
-
-Enable experimental features
+Add the following to registry host (dev computer)
 
 ```
 # /etc/docker/daemon.json
-"experimental": true,
+"insecure-registries": ["0.0.0.0:5000"]
 ```
 
-To pull an off-arch container, use `--platform`
+Run the registry
 
 ```
-docker pull --platform arm64 ros:dashing-ros-core-bionic
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
 ```
 
-To run locally, mount the correct qemu
+Add the following to robot
 
 ```
-docker run -it --rm -v /usr/bin/qemu-aarch64-static:/usr/bin/aarch64-static ros:dashing-ros-core-bionic
+# /etc/docker/daemon.json
+"insecure-registries": ["XXX.XXX.X.XX:5000"]
 ```
 
-NOTE: you don't seem to be able to store multiple archs at the same time so have to re-pull.
+## Deployment
+
+Host upload
+
+```
+docker tag emerson/aarch64-ubuntu-eloquent kojet-runtime
+docker push localhost:5000/kojet-runtime
+rsync -v -r install_aarch64/ robot:~/install_aarch64
+```
+
+Robot download
+
+```
+docker pull localhost:5000/kojet-runtime
+systemctl --user enable robot-runtime
+systemctl start robot-runtime
+```

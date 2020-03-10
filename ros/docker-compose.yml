@@ -6,6 +6,5 @@ services:
     volumes:
       - ~/install_aarch64:/ws
       - /dev:/dev
-    entrypoint: /bin/bash
     working_dir: /ws
-
+    entrypoint: /bin/bash -c "source setup.bash && ros2 launch robot_runtime robot_runtime.launch.py"

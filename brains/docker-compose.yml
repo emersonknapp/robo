@@ -6,8 +6,7 @@ services:
     volumes:
       - ~/install_aarch64:/ws
       - /dev:/dev
-    entrypoint: /bin/bash
+    entrypoint: source setup.bash && ros2 launch robot_runtime robot_runtime.launch.py
     working_dir: /ws
     tty: yes
     network_mode: host
-
