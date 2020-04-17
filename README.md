@@ -1,16 +1,9 @@
 # Home Robo
+
 Robo does things.
 
-## Project structure
-* `arduino/` has source for Arduino Nano connected to motor controllers
+## Structure
 
-
-### Deepspeech
-
-For dealing with voice command.
-
-Install pip from requirements.txt
-
-```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.5.1/deepspeech-0.5.1-models.tar.gz
-```
+* `brains`: setup details for the general compute
+* `dev-img`: development docker images (deprecated in favor of ros_cross_compile)
+* `ros`: repos file, intended to be root of colcon workspace. utility scripts for starting development environment containers
