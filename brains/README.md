@@ -1,5 +1,16 @@
 # Robobrains
 
+# System setup
+
+## User setup
+
+```
+groupadd leds
+groupadd docker
+usermod -aG docker homey
+usermod -aG leds homey
+```
+
 ## Udev rules
 
 Install them all from `udev/`
@@ -10,8 +21,9 @@ Copy `systemd/` services to `~/`
 
 Copy `docker-compose.yml` to `~/`
 
+# Deployment
 
-## Docker registry setup
+## Prereq - Docker registry setup
 
 Add the following to registry host (dev computer)
 
@@ -33,7 +45,7 @@ Add the following to robot
 "insecure-registries": ["XXX.XXX.X.XX:5000"]
 ```
 
-## Deployment
+## Deploy
 
 Host upload
 
