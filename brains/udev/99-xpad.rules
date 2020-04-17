@@ -1,0 +1,7 @@
+# These do a few things
+# * add xpad0 led device to the "leds" group
+# * change its permissions for the group
+# * hackily manually create a symlink into /dev so that we can access it in the container that has /dev mounted
+# This needs to run on change as well because it moves location after creation
+KERNEL=="xpad0", SUBSYSTEM=="leds", ACTION=="add", RUN+="/bin/chgrp -R leds /sys%p", RUN+="/bin/chmod -R g=u /sys%p", RUN+="/bin/ln -sf /sys%p/brightness /dev/xled0"
+KERNEL=="xpad0", SUBSYSTEM=="leds", ACTION=="change", RUN+="/bin/chgrp -R leds /sys%p", RUN+="/bin/chmod -R g=u /sys%p", RUN+="/bin/ln -sf /sys%p/brightness /dev/xled0"
