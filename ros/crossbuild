@@ -1,0 +1,2 @@
+#!/bin/bash
+ros_cross_compile $(pwd) -a aarch64 -o ubuntu -d eloquent --colcon-defaults runtime.yaml
