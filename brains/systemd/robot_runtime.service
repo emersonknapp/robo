@@ -7,3 +7,4 @@ ExecStart=/usr/bin/docker-compose up
 
 [Install]
 WantedBy=default.target
+WantedBy=multi-user.target

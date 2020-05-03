@@ -1,10 +1,12 @@
 version: '3'
 services:
   kojet:
-    image: "192.168.1.11:5000/kojet-runtime"
+    image: robot_runtime
     privileged: true
     volumes:
-      - ~/install_aarch64:/ws
+      - /home/homey/data:/ros_ws/data
+      - /home/homey/install_aarch64:/ros_ws/install
       - /dev:/dev
-    working_dir: /ws
-    entrypoint: /bin/bash -c "source setup.bash && ros2 launch robot_runtime robot_runtime.launch.py"
+    entrypoint: /bin/bash -c "source install/setup.bash && ros2 launch robot_runtime robot_runtime.launch.py map_path:=/ros_ws/data/dillon.yaml nav:=true"
+    tty: yes
+    network_mode: host

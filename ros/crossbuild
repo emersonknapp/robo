@@ -1,2 +1,2 @@
 #!/bin/bash
-ros_cross_compile $(pwd) -a aarch64 -o ubuntu -d eloquent --colcon-defaults runtime.yaml
+ros_cross_compile $(pwd) --skip-rosdep-collection -a aarch64 -o ubuntu -d eloquent --colcon-defaults runtime.yaml
