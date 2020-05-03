@@ -1,0 +1,13 @@
+#!/bin/bash
+DEPLOY_DIR=/home/homey
+
+docker run \
+  --name kojet_runtime --rm \
+  --privileged \
+  -v $DEPLOY_DIR/data:/ros_ws/data \
+  -v $DEPLOY_DIR/install_aarch64:/ros_ws/install \
+  -v /dev:/dev \
+  --entrypoint /bin/bash \
+  --network host \
+  robot_runtime \
+  -c "source install/setup.bash && ros2 launch robot_runtime robot_runtime.launch.py map_path:=/ros_ws/data/dillon.yaml nav:=true"

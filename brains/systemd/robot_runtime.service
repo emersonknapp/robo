@@ -2,8 +2,7 @@
 Description=Robot Runtime
 
 [Service]
-WorkingDirectory=/home/homey
-ExecStart=/usr/bin/docker-compose up
+ExecStart=/home/homey/start-stack
 
 [Install]
 WantedBy=default.target
