@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rocker \
+  --network host \
+  --user \
+  --oyr-run-arg "--name homey-arm --rm -v $PWD:/ros_ws --entrypoint /bin/bash" \
+  -- emerson/aarch64-ubuntu-eloquent
