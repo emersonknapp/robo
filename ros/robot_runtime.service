@@ -1,0 +1,10 @@
+[Unit]
+Description=Robot Runtime
+
+[Service]
+WorkingDirectory=/home/homey
+ExecStart=/usr/bin/docker-compose up
+
+[Install]
+WantedBy=default.target
+WantedBy=multi-user.target
