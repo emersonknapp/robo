@@ -16,3 +16,12 @@ CPU query
 ```
 1 - (avg by (instance) (irate(node_cpu_seconds_total{job="node",mode="idle"}[5m])))
 ```
+
+
+## Running the server
+
+Use the docker-compose here
+
+```
+docker-compose up -d
+```

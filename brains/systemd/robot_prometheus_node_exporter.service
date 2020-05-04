@@ -1,0 +1,9 @@
+[Unit]
+Description=Robot Prometheus Node Exporter
+
+[Service]
+ExecStart=/opt/homey/node_exporter
+
+[Install]
+WantedBy=default.target
+WantedBy=multi-user.target

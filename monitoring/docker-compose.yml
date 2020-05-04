@@ -1,0 +1,27 @@
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - prometheus-storage:/prometheus
+      - ~/dev/ros/homey/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ~/dev/ros/homey/monitoring/targets.json:/etc/prometheus/targets.json
+    ports:
+      - "9090:9090"
+    networks:
+      - overlay
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - overlay
+
+volumes:
+  prometheus-storage:
+  grafana-storage:
+
+networks:
+  overlay:
