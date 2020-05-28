@@ -23,14 +23,10 @@ repositories:
     type: git
     url: https://github.com/ros-planning/navigation2
     version: eloquent-devel
-  perception/cartographer_ros:
+  cartographer_ros:
     type: git
     url: git@github.com:ros2/cartographer_ros
     version: dashing
-  perception/perception_pcl:
-    type: git
-    url: git@github.com:ros-perception/perception_pcl
-    version: eloquent-devel
   robot_stack:
     type: git
     url: git@github.com:emersonknapp/robot_stack
@@ -42,12 +38,4 @@ repositories:
   ros/joint_state_publisher:
     type: git
     url: git@github.com:ros/joint_state_publisher
-    version: ros2-devel
-  ros2/joystick_drivers:
-    type: git
-    url: https://github.com/ros2/joystick_drivers
-    version: dashing
-  ros2/teleop_twist_joy:
-    type: git
-    url: https://github.com/ros2/teleop_twist_joy
-    version: dashing
+    version: ros2
