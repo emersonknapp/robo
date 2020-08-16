@@ -1,40 +1,54 @@
 repositories:
-  kobuki_base/hls_lfcd_lds_driver:
+  # lidar driver
+  ROBOTIS-GIT/hls_lfcd_lds_driver:
     type: git
     url: https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver
     version: ros2
-  kobuki_base/kobuki:
-    type: git
-    url: git@github.com:emersonknapp/kobuki
-    version: ros2
-  kobuki_base/kobuki_core:
+
+  # C++ kobuki API
+  kobuki-base/kobuki_core:
     type: git
     url: git@github.com:kobuki-base/kobuki_core
     version: devel
-  kobuki_base/turtlebot:
+  kobuki-base/kobuki_ros_interfaces:
+    type: git
+    url: git@github.com:kobuki-base/kobuki_ros_interfaces
+    version: devel
+  kobuki-base/kobuki_ros:
+    type: git
+    url: git@github.com:emersonknapp/kobuki_ros
+    version: cleanups
+
+  # needed for turtlebot_description only
+  emersonknapp/turtlebot:
     type: git
     url: git@github.com:emersonknapp/turtlebot
     version: ros2
-  kobuki_base/turtlebot2_demo:
-    type: git
-    url: git@github.com:emersonknapp/turtlebot2_demo
-    version: eloquent
-  navigation2:
+
+  ros-planning/navigation2:
     type: git
     url: https://github.com/ros-planning/navigation2
-    version: eloquent-devel
-  cartographer_ros:
+    version: foxy-devel
+
+  ros2/cartographer_ros:
     type: git
     url: git@github.com:ros2/cartographer_ros
     version: dashing
-  robot_stack:
+  ros-perception/perception_pcl:
+    type: git
+    url: git@github.com:ros-perception/perception_pcl
+    version: eloquent-devel
+
+  emersonknapp/robot_stack:
     type: git
     url: git@github.com:emersonknapp/robot_stack
     version: master
-  ros-visualization/visualization_tutorials:
+
+  emersonknapp/visualization_tutorials:
     type: git
     url: git@github.com:emersonknapp/visualization_tutorials
     version: imu-display
+
   ros/joint_state_publisher:
     type: git
     url: git@github.com:ros/joint_state_publisher
