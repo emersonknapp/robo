@@ -16,8 +16,8 @@ repositories:
     version: devel
   kobuki-base/kobuki_ros:
     type: git
-    url: git@github.com:emersonknapp/kobuki_ros
-    version: cleanups
+    url: git@github.com:kobuki-base/kobuki_ros
+    version: devel
 
   # needed for turtlebot_description only
   emersonknapp/turtlebot:
@@ -25,11 +25,11 @@ repositories:
     url: git@github.com:emersonknapp/turtlebot
     version: ros2
 
+  # autonomy
   ros-planning/navigation2:
     type: git
     url: https://github.com/ros-planning/navigation2
     version: foxy-devel
-
   ros2/cartographer_ros:
     type: git
     url: git@github.com:ros2/cartographer_ros
@@ -39,17 +39,12 @@ repositories:
     url: git@github.com:ros-perception/perception_pcl
     version: eloquent-devel
 
+  # custom code
   emersonknapp/robot_stack:
     type: git
     url: git@github.com:emersonknapp/robot_stack
     version: master
-
   emersonknapp/visualization_tutorials:
     type: git
     url: git@github.com:emersonknapp/visualization_tutorials
     version: imu-display
-
-  ros/joint_state_publisher:
-    type: git
-    url: git@github.com:ros/joint_state_publisher
-    version: ros2

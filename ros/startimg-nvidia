@@ -1,9 +1,0 @@
-#!/bin/bash
-
-rocker \
-  --nvidia \
-  --x11 \
-  --user \
-  --network host \
-  --oyr-run-arg "--name homey --rm -v $PWD:/ros_ws -v /dev:/dev --privileged --entrypoint /bin/bash" \
-  -- emerson/x86_64-ubuntu-eloquent

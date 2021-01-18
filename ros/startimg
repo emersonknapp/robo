@@ -1,8 +1,9 @@
 #!/bin/bash
 
 rocker \
+  --nvidia \
   --x11 \
-  --network host \
   --user \
-  --oyr-run-arg "--name homey --rm -v $PWD:/ws -v /dev:/dev -w /ws --privileged --entrypoint /bin/bash" \
-  -- emerson/x86_64-ubuntu-eloquent
+  --network host \
+  --oyr-run-arg "--name homey -v $PWD:/ws -v /dev:/dev -w /ws --privileged --entrypoint /bin/bash" \
+  -- dockdev
