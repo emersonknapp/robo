@@ -1,0 +1,2 @@
+docker pull rostooling/setup-ros-docker:ubuntu-focal-ros-foxy-desktop-latest
+docker build . -f ../dev-img/autodock.Dockerfile

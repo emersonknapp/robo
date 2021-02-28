@@ -1,3 +1,4 @@
 cc_internals/sysroot/
 build/
 install/
+log/
