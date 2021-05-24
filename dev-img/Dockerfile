@@ -1,76 +1,31 @@
-ARG ROSDISTRO=eloquent
-FROM osrf/ros:$ROSDISTRO-desktop
-ARG ROSDISTRO
+arg ROSDISTRO=foxy
+from rostooling/setup-ros-docker:ubuntu-focal-ros-${ROSDISTRO}-desktop-latest
 
-# Useful dev tools
-RUN apt-get update && apt-get install -y \
-      htop \
-      screen \
-      tree \
-      vim \
-      less \
-    && rm -rf /var/lib/apt/lists/*
+arg ROSDISTRO=foxy
+arg ENTRYPKG=robot_stack
 
-RUN python3 -m pip install -U \
-  ipython
+run rosdep update
 
-# dependency ros packages
-RUN apt-get update && apt-get install -y \
-      ros-$ROSDISTRO-ros2bag \
-      ros-$ROSDISTRO-rosbag2-storage-default-plugins \
-      ros-$ROSDISTRO-launch-testing-ament-cmake \
-      ros-$ROSDISTRO-python-qt-binding \
-      ros-$ROSDISTRO-xacro \
-      ros-$ROSDISTRO-gazebo-plugins \
-    && rm -rf /var/lib/apt/lists/*
+run apt-get update && apt-get install -y --no-install-recommends \
+  ccache \
+  gdb \
+  htop \
+  less \
+  screen \
+  tree \
+  vim \
+  zsh
+run python3 -m pip install -U ipython
 
-# specifically cartographer-ros dependencies
-RUN apt-get update && apt-get install -y \
-      libsdl1.2-dev \
-      libsdl-image1.2-dev \
-      ros-$ROSDISTRO-cartographer \
-      ros-$ROSDISTRO-test-msgs \
-      libgraphicsmagick++1-dev \
-      ros-$ROSDISTRO-behaviortree-cpp-v3 \
-    && rm -rf /var/lib/apt/lists/*
+run mkdir /ws
+copy src /ws/src
+workdir /ws
+run apt-get update && . /opt/ros/${ROSDISTRO}/setup.sh && rosdep install --from-paths $(colcon list --packages-up-to ${ENTRYPKG} -p) --ignore-src -y
 
-# kobuki_driver dependencies
-RUN apt-get update && apt-get install -y \
-      ftdi-eeprom \
-      libusb-dev \
-      libftdi-dev \
-      ros-${ROSDISTRO}-ecl-build \
-      ros-${ROSDISTRO}-ecl-threads \
-      ros-${ROSDISTRO}-ecl-geometry \
-      ros-${ROSDISTRO}-ecl-linear-algebra \
-      ros-${ROSDISTRO}-ecl-command-line \
-      ros-${ROSDISTRO}-ecl-mobile-robot \
-      ros-${ROSDISTRO}-ecl-config \
-      ros-${ROSDISTRO}-ecl-converters \
-      ros-${ROSDISTRO}-ecl-devices \
-      ros-${ROSDISTRO}-ecl-sigslots \
-      ros-${ROSDISTRO}-ecl-time \
-    && rm -rf /var/lib/apt/lists/*
+# RUN curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
+#     apt-get install -y nodejs
 
-# for joint_state_publisher and neato_botvac
-RUN python3 -m pip install -U \
-  pyserial \
-  PySide2
-
-# development workflow dependencies
-RUN apt-get update && apt-get install -y \
-      ros-$ROSDISTRO-rqt \
-      ros-$ROSDISTRO-rqt-graph \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y \
-      libi2c-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# RUN groupadd -r developer -g 1001 && useradd -r -g developer -u 1000 developer -m -G dialout
-# USER developer
-
-ENV TERM xterm-256color
-CMD ["bash", "-l"]
-COPY setup.bash /home/developer/homey_setup.bash
-RUN echo "source ~/homey_setup.bash" >> /home/developer/.bashrc
+env COLCON_DEFAULTS_FILE=/ws/defaults.yaml
+env COLCON_HOME=/etc/colcon
+run colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+run colcon mixin update

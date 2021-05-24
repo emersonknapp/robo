@@ -1,4 +1,5 @@
-cc_internals/sysroot/
+cc_internals/
 build/
 install/
 log/
+*/**/node_modules/

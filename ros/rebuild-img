@@ -1,2 +1,1 @@
-docker pull rostooling/setup-ros-docker:ubuntu-focal-ros-foxy-desktop-latest
-docker build . -f ../dev-img/autodock.Dockerfile
+docker build --pull . -f ../dev-img/Dockerfile -t homeydev

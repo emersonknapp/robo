@@ -1,10 +1,4 @@
 repositories:
-  # lidar driver
-  ROBOTIS-GIT/hls_lfcd_lds_driver:
-    type: git
-    url: https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver
-    version: ros2
-
   # C++ kobuki API
   kobuki-base/kobuki_core:
     type: git
@@ -24,20 +18,6 @@ repositories:
     type: git
     url: git@github.com:emersonknapp/turtlebot
     version: ros2
-
-  # autonomy
-  ros-planning/navigation2:
-    type: git
-    url: https://github.com/ros-planning/navigation2
-    version: foxy-devel
-  ros2/cartographer_ros:
-    type: git
-    url: git@github.com:ros2/cartographer_ros
-    version: dashing
-  ros-perception/perception_pcl:
-    type: git
-    url: git@github.com:ros-perception/perception_pcl
-    version: eloquent-devel
 
   # custom code
   emersonknapp/robot_stack:
