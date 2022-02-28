@@ -1,1 +1,1 @@
-docker build --pull . -f ../dev-img/Dockerfile -t homeydev
+docker build --pull . -f ./Dockerfile -t robodev
